@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Signup from "./HomePageComp/Signup";
 import ExistingSignin from "./HomePageComp/ExistingSignin";
+import { Button } from "antd";
+import "antd/dist/antd.css";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -28,6 +30,16 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="App">
+        <header
+          style={{
+            fontSize: "25px",
+            fontFamily: "Didact Gothic, sans-serif",
+            paddingLeft: "20px",
+            paddingTop: "15px"
+          }}
+        >
+          WeebMatch
+        </header>
         <header className="App-header">
           {this.state.signInClicked ? <ExistingSignin /> : <Signup />}
 
@@ -38,12 +50,9 @@ export default class HomePage extends Component {
               left: "92%"
             }}
           >
-            <button
-              style={{ display: "inline-block" }}
-              onClick={this.handleClick}
-            >
+            <Button onClick={this.handleClick} type="Default">
               {this.state.buttonState}
-            </button>
+            </Button>
           </div>
         </header>
       </div>

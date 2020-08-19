@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card, Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import MainUserCard from "./MainUserCard.js";
 import MatchModal from "./MatchModal.js";
+import { List } from "antd";
+import "antd/dist/antd.css";
 
 //figure out how to have the user upload a picture
 //figure out how to get people that liked you to the front of your queue
@@ -173,11 +173,10 @@ export default class Homepage extends Component {
     // console.log(this.state.potentialMatches.length);
     // console.log(this.state.outOfMatches);
     const userInfo = this.props.location.state;
-    const matchElements = this.state.trueMatches
-      .filter(element => element.Matched != "" && element.Matched != " ")
-      .map(entry => {
-        return <li>{entry.Matched}</li>;
-      });
+    const matchElements = this.state.trueMatches.filter(
+      element => element.Matched != "" && element.Matched != " "
+    );
+
     console.log(matchElements);
     return (
       <div>
@@ -202,9 +201,25 @@ export default class Homepage extends Component {
             />
             <br></br>
             <br></br>
-            <div style={{ border: "solid black 2px" }}>
-              <h1>Match Queue</h1>
-              <ul>{matchElements}</ul>
+            <div
+              style={{
+                height: "100vh",
+                width: "400px",
+                position: "relative",
+                borderRight: "solid 1px",
+                borderColor: "Gainsboro",
+                bottom: "1000px",
+                left: "0",
+                fontFamily: "Didact Gothic, sans-serif"
+              }}
+            >
+              <h1 style={{ textAlign: "center" }}>Match Queue</h1>
+              <List
+                style={{ position: "relative", top: "30px" }}
+                bordered
+                dataSource={matchElements}
+                renderItem={item => <List.Item>{item.Matched}</List.Item>}
+              />
             </div>
           </div>
         )}

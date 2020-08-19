@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import "/Users/hongchen/WeebTinder/client/src/App.css";
+import "antd/dist/antd.css";
+import { Input, Button } from "antd";
 
 class Signup extends Component {
   constructor(props) {
@@ -141,6 +143,7 @@ class Signup extends Component {
   //routing to the /app main user page
 
   render() {
+    const { TextArea } = Input;
     return (
       <div className="SignUpBox">
         <div className="mainBox">
@@ -150,60 +153,70 @@ class Signup extends Component {
           <p style={{ textAlign: "center" }}>Fill in the blanks below</p>
 
           <form style={{ textAlign: "center" }} onSubmit={this.handleSubmit}>
-            <input
+            <Input
               placeholder="username"
               onChange={this.handleChange(0)}
               type="text"
               value={this.state.usernameInput}
-            ></input>
+              style={{ width: 200 }}
+            />
             <br></br>
-            <input
+            <Input
               placeholder="password"
               onChange={this.handleChange(1)}
               type="text"
               value={this.state.passwordInput}
-            ></input>
+              style={{ width: 200 }}
+            />
             <br></br>
-            <input
+            <Input
               placeholder="abc123@hotmail.com"
               onChange={this.handleChange(2)}
               type="text"
               value={this.state.emailInput}
-            ></input>
+              style={{ width: 200 }}
+            />
             <br></br>
-            <input
+            <Input
               placeholder="John"
               onChange={this.handleChange(3)}
               type="text"
               value={this.state.firstnameInput}
-            ></input>
+              style={{ width: 200 }}
+            />
             <br></br>
-            <input
+            <Input
               placeholder="Smith"
               onChange={this.handleChange(4)}
               type="text"
               value={this.state.lastnameInput}
-            ></input>
+              style={{ width: 200 }}
+            />
             <br></br>
-            <input
+            <Input
               placeholder="Sex: M or F"
               onChange={this.handleChange(5)}
               type="text"
               value={this.state.sexInput}
-            ></input>
+              style={{ width: 200 }}
+            />
             <br></br>
+
             <br></br>
-            <textarea
+            <TextArea
               placeholder="Write something about yourself here!"
               onChange={this.handleChange(6)}
               value={this.state.bioInput}
-            ></textarea>
-            <br></br>
+              rows={4}
+              style={{ width: 300 }}
+            />
             <br></br>
 
-            <button type="button" onClick={this.getLocation}>
+            <br></br>
+
+            <Button type="Default" onClick={this.getLocation}>
               Submit
-            </button>
+            </Button>
 
             {/* <button type = "submit">Submit</button> */}
           </form>
